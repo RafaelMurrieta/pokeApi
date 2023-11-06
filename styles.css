@@ -8,24 +8,26 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 header{
-    width: 100vw;
     margin: 0 0 2% 0;
     
 }
 header .navbar{
+    width: auto;
     padding: 3vh;
-    background-color: yellow;
+    background-color: rgb(255, 255, 109);
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
 }
 header .navbar a{
+    margin-top: 1%;
     font-family: sans-serif;
     font-size:1.3rem;
     text-decoration: none;
     color: black;
 }
-.Pokemones{
-    background-color: aqua;
+header .navbar img{
+    max-width: 40%;
 }
 .Pokemones .container{
     display: flex;
@@ -34,7 +36,10 @@ header .navbar a{
 .Pokemones .container{
     width: 90vw;
     height: auto;
-    margin: 2% 0 0 5%;
+    margin: 1% 0 5% 5%;
+}
+.Pokemones .card{
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 8px 24px
 }
 .Pokemones .card{
     display: flex;
@@ -43,10 +48,52 @@ header .navbar a{
     margin: 10px;
     width:30%;
     padding: 10px;
-    height: 300px;
     border-radius: 20px;
 }
 .Pokemones .card img{
-    width: 30%;
-    height: 30%;
+    display: grid;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    max-width: 50%;
+}
+.Pokemones .card .body-card{
+    margin: 60px;
+}
+.Pokemones .card .body-card .body-buton{
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Pokemones .card .body-card button{
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: yellow;
+    border: none;
+    border-radius: 10px;
+    font-size: medium;
+    transition: background 0.5s;
+}
+.Pokemones .card .body-card button:hover{
+    background-color:rgb(0, 0, 0);
+    color: white;
+}
+.modal-pokemon{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.modal-pokemon .container-pokemon{
+    transition: width 0.5s;
+    width: 70%;
+    padding: 30px;
+    height: 80%;
+    background-color: aliceblue;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 50px;
 }
