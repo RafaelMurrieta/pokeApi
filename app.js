@@ -5,11 +5,16 @@ const __button__search = document.getElementById('boton-search');
 
 __button__search.addEventListener('click',function(){
 const __search__pokemon = document.getElementById('search').value;
-    // fetch('http://pokeapi.co/api/v2/pokemon'+__search__pokemon);
-    // .then(res=> res.json())
-    // .then(response=>{
+
+        fetch('https://pokeapi.co/api/v2/pokemon/' + __search__pokemon)
+        .then(res => res.json())
+        .then(response => {
+            console.log(response);
+            const image = response['sprites']['other']['dream_world']['front_default'];
+            infoModal(response, image)
+            __modal__.style.display = "flex"
+        });
         
-    // })
 })
 
 function cards(number, response) {
@@ -55,6 +60,7 @@ function infoModal(info, image) {
     const pokemon = document.createElement("div");
     pokemon.className = 'info-pokemon';
     pokemon.id = "info-pokemon";
+    console.log("INFORMACION: "+info['name']);
     const pokemonContent = '<div class="body-info"><div class="image-info"><img src="' + image + '"></div></div> <div class="information" id="information"><h1>Nombre: ' + info["name"] + '</h1><p>ID: ' + info["id"] + '</p><p>Tipo: ' + info["types"][0]["type"]["name"] + '</p><p>Habilidades: ' + info["abilities"].map(ability => ability.ability.name).join(", ") + '</p><p>HP: ' + info["stats"][0]["base_stat"] + '</p><p>Ataque: ' + info["stats"][1]["base_stat"] + '</p><p>Defensa: ' + info["stats"][2]["base_stat"] + '</p><button class="closeModal" id ="closeModal">Cerrar</button></div>';
     pokemon.innerHTML = pokemonContent;
     container__pokemon.appendChild(pokemon);
